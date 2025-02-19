@@ -19,9 +19,7 @@ public class QuizzGame extends javax.swing.JFrame {
     static int indexQuestion = 0;
 
     public QuizzGame() {
-        initComponents();
-        //set full screen
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -255,91 +253,27 @@ public class QuizzGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAnswerAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerAMouseClicked
-        // TODO add your handling code here:
-        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerA().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
-            displayCorrectMessage();
-
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score += 10;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        } else {
-            displayNotCorrectMessage();
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score = 0;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        }
+        
     }//GEN-LAST:event_txtAnswerAMouseClicked
 
     private void txtAnswerBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerBMouseClicked
-        // TODO add your handling code here:
-        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerB().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
-            displayCorrectMessage();
-
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score += 10;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        } else {
-            displayNotCorrectMessage();
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score = 0;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        }
+        
     }//GEN-LAST:event_txtAnswerBMouseClicked
 
     private void txtAnswerCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerCMouseClicked
-        // TODO add your handling code here:
-        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerC().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
-            displayCorrectMessage();
-
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score += 10;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        } else {
-            displayNotCorrectMessage();
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score = 0;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        }
+        
     }//GEN-LAST:event_txtAnswerCMouseClicked
 
     private void txtAnswerDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAnswerDMouseClicked
-        // TODO add your handling code here:
-        if (QuizzGameClient.listQuest.get(indexQuestion).getAnswerD().equals(QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer())) {
-            displayCorrectMessage();
-
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score += 10;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        } else {
-            displayNotCorrectMessage();
-            QuizzGameClient.listQuest.remove(indexQuestion);
-            score = 0;
-            txtScore.setText("" + score);
-            displayRandomQuestion();
-        }
+        
     }//GEN-LAST:event_txtAnswerDMouseClicked
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dispose();
+        
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnReplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplayActionPerformed
-        // TODO add your handling code here:
-        QuizzGameClient.listQuest.clear();
-        QuizzGameClient.inputData();
-        displayRandomQuestion();
-        score = 0;
-        txtTienThuong.setText("0 VNĐ");
-        txtScore.setText("" + score);
+        
     }//GEN-LAST:event_btnReplayActionPerformed
 
     private void txtAnswerAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswerAActionPerformed
@@ -347,119 +281,38 @@ public class QuizzGame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnswerAActionPerformed
 
     private void btnGiveUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiveUpActionPerformed
-        // TODO add your handling code here:
-        cleanQuestion();
-        displayScoreMessage();
+        
     }//GEN-LAST:event_btnGiveUpActionPerformed
 
     public boolean displayRandomQuestion() {
-        if (QuizzGameClient.listQuest.size() == 0) {
-            cleanQuestion();
-            displayScoreMessage();
-            return false;
-        }
-
-        setScore();
-        indexQuestion = QuizzGameClient.getRandomNumberZeroTo(QuizzGameClient.listQuest.size());
-        txtQuestion.setText(QuizzGameClient.listQuest.get(indexQuestion).getQuestion());
-        txtAnswerA.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerA());
-        txtAnswerB.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerB());
-        txtAnswerC.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerC());
-        txtAnswerD.setText(QuizzGameClient.listQuest.get(indexQuestion).getAnswerD());
-        return true;
+        
     }
 
     public void cleanQuestion() {
-        txtAnswerA.setText("");
-        txtAnswerB.setText("");
-        txtAnswerC.setText("");
-        txtAnswerD.setText("");
-        txtQuestion.setText("");
+        
     }
 
     public static void displayMessage(String message, int displayTimeInSeconds) {
-        // Tạo JDialog từ JOptionPane với thông báo
-        JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = pane.createDialog(null, "Thông báo");
-
-        // Đảm bảo hộp thoại hiển thị được gọi trên luồng sự kiện chính
-        SwingUtilities.invokeLater(() -> {
-            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-            dialog.setVisible(true);  // Hiển thị dialog
-        });
-
-        // Sử dụng javax.swing.Timer để tắt dialog sau một khoảng thời gian
-        javax.swing.Timer timer = new javax.swing.Timer(displayTimeInSeconds * 1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dialog.dispose();  // Đóng thông báo sau thời gian đã định
-            }
-        });
-
-        timer.setRepeats(false);  // Đảm bảo Timer chỉ chạy một lần
-        timer.start();  // Bắt đầu Timer
+        
     }
 
     public void displayCorrectMessage() {
-        displayMessage("Chính xác !", 1);
+        
     }
 
     public void displayNotCorrectMessage() {
-        // Gọi phương thức chung để hiển thị thông báo "Sai rồi !"
-        displayMessage("Sai rồi !\nĐáp án đúng: " + QuizzGameClient.listQuest.get(indexQuestion).getTrueAnswer(), 2);
+        
     }
 
     public void displayScoreMessage() {
-        QuizzGameClient.inputData();
-        displayMessage("Tổng điểm của bạn: " + score + "/" + QuizzGameClient.listQuest.size() * 10 + "\nTiền thưởng nhận được: " + txtTienThuong.getText(), 30);
-        QuizzGameClient.listQuest.clear();
+        
     }
 
     public void setScore() {
-        if (score < 50) {
-            txtTienThuong.setText(score * 10000 + " VNĐ");
-        } else if (score < 100) {
-            txtTienThuong.setText(score * 100000 + " VNĐ");
-        } else if (score < 150) {
-            txtTienThuong.setText(score * 100000 + " VNĐ");
-        } else if (score < 200) {
-            txtTienThuong.setText(score * 1000000 + " VNĐ");
-        } else {
-            txtTienThuong.setText("50000000 VNĐ");
-        }
+        
     }
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(QuizzGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(QuizzGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(QuizzGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(QuizzGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new QuizzGame().setVisible(true);
-//            }
-//        });
-//    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
