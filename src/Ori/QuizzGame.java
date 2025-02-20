@@ -20,7 +20,7 @@ public class QuizzGame extends javax.swing.JFrame {
     
     //Huy
     public QuizzGame() {
-        
+        //Huy cute
     }
 
     @SuppressWarnings("unchecked")
