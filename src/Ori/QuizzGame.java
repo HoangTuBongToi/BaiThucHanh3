@@ -22,6 +22,8 @@ public class QuizzGame extends javax.swing.JFrame {
     public QuizzGame() {
         //Huy cute
     }
+    
+    // Vuong
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
