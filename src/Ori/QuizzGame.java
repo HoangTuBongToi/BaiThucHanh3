@@ -23,7 +23,7 @@ public class QuizzGame extends javax.swing.JFrame {
         //Huy cute
     }
     
-    // Vuong
+    // Vuong dep trai
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
